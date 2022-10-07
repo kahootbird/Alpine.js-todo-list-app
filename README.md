@@ -1,4 +1,4 @@
-# Laravel-Pet-Scheduling-App
-A pet scheduling app written in Laravel / Alpine.js
+# Alpine.js todo list
 
-A simple pet scheduling application written in Laravel with Alpine.js
+A todo list written in Alpine.js with Bootstrap
+

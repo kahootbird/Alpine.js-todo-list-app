@@ -5,24 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Hello, world!</title>
+    <title>Todo List</title>
   </head>
   <body>
-      <h1>Add task to list (Work In Progress)</h1>
+      <h1>Alpine.js todo list</h1>
 
     <div x-data="{ todos: [], userInput: ''}">
     <form x-on:submit.prevent>
-    <input x-model="userInput" placeholder="Enter here" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-    <button x-on:click="todos.push({name: userInput, completed: false})">Submit Task </button>
+    <input x-model="userInput" placeholder="Enter task here" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+    <button x-on:click="if(userInput.length > 0)todos.push({name: userInput, completed: false}); userInput = '' ">Submit Task </button>
    </form>
 <!--
          <button @click="open = ! open">Show Tasks</button>
 -->
          <template x-for="todo in todos">
          <div>
-          <input type="checkbox">
+         </br>
            <span x-text="todo.name"></span>
-          <button>x</button>
+          <button @click="todos=todos.filter((currTodo) => currTodo != todo)">Delete</button>
          </div>
          </template>
     </div>
